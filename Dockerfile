@@ -1,7 +1,7 @@
 FROM amazonlinux
 
 RUN yum update -y
-RUN yum install gcc openssl-devel bzip2-devel libffi-devel wget tar gzip zip make -y
+RUN yum install gcc openssl-devel bzip2-devel libffi-devel wget tar gzip zip make zlib -y
 
 # Install Python 3.9
 WORKDIR /
@@ -32,7 +32,7 @@ RUN mkdir /packages
 RUN echo "opencv-python" >> /packages/requirements.txt
 RUN mkdir -p /packages/opencv-python-3.7/python/lib/python3.7/site-packages
 RUN mkdir -p /packages/opencv-python-3.8/python/lib/python3.8/site-packages
-RUN mkdir -p /packages/opencv-python-3.8/python/lib/python3.9/site-packages
+RUN mkdir -p /packages/opencv-python-3.9/python/lib/python3.9/site-packages
 RUN pip3.7 install -r /packages/requirements.txt -t /packages/opencv-python-3.7/python/lib/python3.7/site-packages
 RUN pip3.8 install -r /packages/requirements.txt -t /packages/opencv-python-3.8/python/lib/python3.8/site-packages
 RUN pip3.9 install -r /packages/requirements.txt -t /packages/opencv-python-3.9/python/lib/python3.9/site-packages
