@@ -1,13 +1,13 @@
 FROM amazonlinux
 
 RUN yum update -y
-RUN yum install gcc openssl-devel bzip2-devel libffi-devel wget tar gzip zip make zlib -y
+RUN yum install gcc openssl-devel bzip2-devel libffi-devel wget tar gzip zip make zlib zlib-devel -y
 
 # Install Python 3.9
 WORKDIR /
-RUN wget https://www.python.org/ftp/python/3.9.10/Python-3.9.10.tgz
-RUN tar -xzvf Python-3.9.10.tgz
-WORKDIR /Python-3.9.10
+RUN wget https://www.python.org/ftp/python/3.9.16/Python-3.9.16.tgz
+RUN tar -xzvf Python-3.9.16.tgz
+WORKDIR /Python-3.9.16
 RUN ./configure --enable-optimizations
 RUN make altinstall
 
