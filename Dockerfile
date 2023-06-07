@@ -13,7 +13,7 @@ RUN make altinstall
 
 # Install Python packages
 RUN mkdir /packages
-RUN echo "opencv-python" >> /packages/requirements.txt
+RUN echo "opencv-python-headless" >> /packages/requirements.txt
 RUN mkdir -p /packages/opencv-python-3.9/python/lib/python3.9/site-packages
 RUN pip3.9 install -r /packages/requirements.txt -t /packages/opencv-python-3.9/python/lib/python3.9/site-packages
 
